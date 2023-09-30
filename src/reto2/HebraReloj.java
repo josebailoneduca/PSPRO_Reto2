@@ -2,13 +2,25 @@ package reto2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.swing.JLabel;
 
+
+/**
+ * Hebra que controla la actualizacion de la etiqueta de la hora actual
+ */
 public class HebraReloj extends Thread {
 	
+	/**
+	 * Referencia a la etiqueta donde se muestra la hora
+	 */
 	JLabel visorReloj;
 	
+	
+	/**
+	 * Constructor
+	 * 
+	 * @param visorReloj Etiqueta en la que se muestra la hora
+	 */
 	public HebraReloj(JLabel visorReloj) {
 		this.visorReloj=visorReloj;
 	}
@@ -26,6 +38,4 @@ public class HebraReloj extends Thread {
 		}
 		}
 	}
-
-	
 }
