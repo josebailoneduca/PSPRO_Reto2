@@ -1,0 +1,5 @@
+Reto 2:
+
+A) Crono digital con tres botones: Pause, Resume, Reset
+
+B) Agregar hilo con la fecha-hora actual u otra cosa que demuestre un hilo
