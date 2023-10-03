@@ -135,7 +135,6 @@ public class MainCronometro extends JFrame implements Runnable {
         try
         {
             
-        	//
             while( cronometroActivo )
             {
             	//gestion del reinicio del tiempo a 0
@@ -187,7 +186,7 @@ public class MainCronometro extends JFrame implements Runnable {
                 else if( milesimas < 100 ) mil = "0" + milesimas;
                 else mil = milesimas+"";
                  
-               
+               //actualiza etiqueta del cronometro
                 lbTiempo.setText( min + ":" + seg + ":" + mil );                
             }
         }catch(Exception e){}
