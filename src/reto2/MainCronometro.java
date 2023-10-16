@@ -59,10 +59,7 @@ public class MainCronometro extends JFrame implements Runnable {
      */
     HebraReloj hebraReloj;
     
-    /**
-     * Define si el cronometro esta andando
-     */
-    boolean cronometroActivo;
+
     
     /**
      * Define si el cronometro esta pausado
@@ -135,7 +132,7 @@ public class MainCronometro extends JFrame implements Runnable {
         try
         {
             
-            while( cronometroActivo )
+            while( true )
             {
             	//gestion del reinicio del tiempo a 0
         		if (reiniciarCronometro) {
@@ -162,9 +159,10 @@ public class MainCronometro extends JFrame implements Runnable {
             	//avance normal del cronometro
                 Thread.sleep( 4 );
                 
+                //aumentar milesimas
                 milesimas += 5;
                  
-                
+                //calculo de tiempo a minutos segundos milesimas
                 if( milesimas == 1000 )
                 {
                     milesimas = 0;
@@ -191,7 +189,6 @@ public class MainCronometro extends JFrame implements Runnable {
             }
         }catch(Exception e){}
         
-        lbTiempo.setText( "00:00:000" );
     }
   
      
@@ -199,8 +196,7 @@ public class MainCronometro extends JFrame implements Runnable {
      * Pone en marcha el cronometro y el conteo de hora actual
      */
     public void iniciarCronometro() {
-    	//define el cronometro como activo
-        cronometroActivo = true;
+
         //hilo de control del cronometro
         hiloCronometro = new Thread( this );
         hiloCronometro.start();
@@ -211,12 +207,7 @@ public class MainCronometro extends JFrame implements Runnable {
         
     }
   
-    /**
-     * Parar completamente el cronometro
-     */
-    public void pararCronometro(){
-        cronometroActivo = false;
-    }
+
   
     public static void main(String[] args) {
         new MainCronometro().iniciarCronometro();
