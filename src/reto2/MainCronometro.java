@@ -49,15 +49,7 @@ public class MainCronometro extends JFrame implements Runnable {
 	 */
 	JButton btnReset;
 	
-	/**
-	 * Hebra de control del cronometro
-	 */
-    Thread hiloCronometro;
-    
-    /**
-     * Hebra de control de actualizacion de la hora actual
-     */
-    HebraReloj hebraReloj;
+
     
 
     
@@ -121,6 +113,9 @@ public class MainCronometro extends JFrame implements Runnable {
         //centrado en pantalla y visualizacion del JFrame
         this.setLocationRelativeTo( null );
         setVisible( true );
+        
+        //iniciar hilos
+        this.iniciarHilos();
     }
   
     @Override
@@ -195,14 +190,14 @@ public class MainCronometro extends JFrame implements Runnable {
     /**
      * Pone en marcha el cronometro y el conteo de hora actual
      */
-    public void iniciarCronometro() {
+    public void iniciarHilos() {
 
         //hilo de control del cronometro
-        hiloCronometro = new Thread( this );
+        Thread hiloCronometro = new Thread( this );
         hiloCronometro.start();
         
         //hilo de control de la hora actual
-        hebraReloj = new HebraReloj(lbHoraActual);
+        HebraReloj hebraReloj = new HebraReloj(lbHoraActual);
         hebraReloj.start();
         
     }
@@ -210,7 +205,7 @@ public class MainCronometro extends JFrame implements Runnable {
 
   
     public static void main(String[] args) {
-        new MainCronometro().iniciarCronometro();
+        new MainCronometro();
     }
 
 	
