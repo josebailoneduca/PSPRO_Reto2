@@ -12,7 +12,7 @@ import javax.swing.JPanel;
  /**
   * Clase main del reto 2
   * 
-  * Contiene un cronometro y la hora actual. El cronometro se puede pausar, continuar o resetar(puesta a cero e inicio del conteo.
+  * Contiene un cronometro y la hora actual. El cronometro se puede pausar, continuar o resetar(puesta a cero e inicio del conteo).
   * La propia clase sirve de runable para controlar el cronometro. Se inicia una hebra para el control del cronometro y otra
   * hebra independiente para controlar la actualizacion de la hora actual
   */
