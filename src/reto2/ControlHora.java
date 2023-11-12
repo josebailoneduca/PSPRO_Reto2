@@ -7,19 +7,19 @@ import javax.swing.JLabel;
 /**
  * Hebra que controla la actualizacion de la etiqueta de la hora actual
  */
-public class HebraReloj extends Thread {
+public class ControlHora implements Runnable {
 
 	/**
 	 * Referencia a la etiqueta donde se muestra la hora
 	 */
-	JLabel visorReloj;
+	Cronometro visorReloj;
 
 	/**
 	 * Constructor
 	 * 
 	 * @param visorReloj Etiqueta en la que se muestra la hora
 	 */
-	public HebraReloj(JLabel visorReloj) {
+	public ControlHora(Cronometro visorReloj) {
 		this.visorReloj = visorReloj;
 	}
 
@@ -29,9 +29,9 @@ public class HebraReloj extends Thread {
 		SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss");
 		while (true) {
 			Date fechaActual = new Date();
-			visorReloj.setText("Son las " + formato.format(fechaActual));
+			visorReloj.actualizarHora("Son las " + formato.format(fechaActual));
 			try {
-				sleep(200);
+				Thread.currentThread().sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
